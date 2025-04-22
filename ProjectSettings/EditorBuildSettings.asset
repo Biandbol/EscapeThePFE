@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WarRoom.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Yomna's SampleScene.unity
+    guid: 95ded0c2c40dbb040b438c333ae43a00
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: fdf80512e4653ce4a8909532e190d70a, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}

@@ -17,6 +17,7 @@ TagManager:
   - QDSUISecondaryButton
   - SamplesInfoPanel
   - QDSUISection
+  - time
   layers:
   - Default
   - TransparentFX
