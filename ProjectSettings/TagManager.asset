@@ -1,23 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
   tags:
-  - book1
-  - book2
-  - book3
-  - book4
-  - slot1
   - slot2
+  - slot1
   - slot3
+  - book4
+  - book1
+  - book3
+  - book2
   - slot4
-  - QDSUITooltip
-  - QDSUIToggleButton
-  - QDSUITextSecondaryColor
-  - QDSUIIcon
-  - QDSUIBackplateGradient
-  - QDSUIToggleBorderlessButton
-  - QDSUIToggleSwitch
-  - QDSUISharedThemeColor
-  - QDSUIAccentColor
-  - QDSUIBorderlessButton
-  - QDSUISecondaryButton
-  - SamplesInfoPanel
-  - QDSUISection
-  - time
+  - cube1
+  - cube2
+  - cube3
+  - cube4
+  - cube5
+  - cube6
+  - cube7
+  - cube8
+  - cube9
+  - cube10
+  - cube11
+  - cube12
+  - cube13
+  - cube14
+  - cube15
+  - cube16
+  - cube17
+  - cube18
+  - cube19
+  - cube20
+  - cube21
+  - cube22
+  - cube23
+  - cube24
+  - cube25
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default
