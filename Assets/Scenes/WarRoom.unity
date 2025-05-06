@@ -7351,6 +7351,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3270844720323553124, guid: 388eb13c8d8997e4f91bc7fa0b670f9d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 19171626521dcf2469bed016230afef8, type: 2}
+    - target: {fileID: -586215106954472422, guid: 388eb13c8d8997e4f91bc7fa0b670f9d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 19171626521dcf2469bed016230afef8, type: 2}
+    - target: {fileID: 293729475409496177, guid: 388eb13c8d8997e4f91bc7fa0b670f9d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 19171626521dcf2469bed016230afef8, type: 2}
     - target: {fileID: 919132149155446097, guid: 388eb13c8d8997e4f91bc7fa0b670f9d, type: 3}
       propertyPath: m_Name
       value: SunDial180
