@@ -1,0 +1,5 @@
+D:\3d models\upload\t$m$p$$$\barrel.max
+D:\3d models\upload\t$m$p$$$\MAXFILES.TXT
+D:\Bilder\TEXTURES\3DMAXMAPS\Material Bibliothek\Maps\cedfence.jpg
+D:\Bilder\TEXTURES\3DMAXMAPS\Material Bibliothek\Maps\OLDMETAL.jpg
+D:\Bilder\TEXTURES\3DMAXMAPS\Material Bibliothek\Maps\SUNSET.jpg
