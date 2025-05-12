@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class BookShelfPuzzleManager : MonoBehaviour
 {
-    public Transform[] bookSlots; 
-    public Animator hole; 
+    public Transform[] bookSlots;
+    //public Animator hole; 
+    private GameObject hole;
 
     public void CheckBooks()
     {
         bool isCorrect = true;
 
         
-        string[] correctTags = { "book1", "book4", "book3", "book2" };
+        string[] correctTags = { "Book10", "Book9", "Book8", "Book7", "Book6", "Book5", "Book4", "Book3", "Book2", "Book1" };
 
         for (int i = 0; i < bookSlots.Length; i++)
         {
@@ -40,10 +41,11 @@ public class BookShelfPuzzleManager : MonoBehaviour
         Debug.Log("Puzzle Solved! Secret Door Opens!");
 
         // Play door animation
-        if (hole != null)
+        /*if (hole != null)
         {
             hole.SetTrigger("Open");
-        }
+        }*/
+        hole.transform.position += new Vector3 (2f, 0, 0);
     }
 }
 

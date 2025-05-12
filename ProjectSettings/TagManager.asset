@@ -4,14 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - slot2
-  - slot1
-  - slot3
-  - book4
-  - book1
-  - book3
-  - book2
-  - slot4
   - cube1
   - cube2
   - cube3
@@ -37,6 +29,16 @@ TagManager:
   - cube23
   - cube24
   - cube25
+  - Book1
+  - Book2
+  - Book3
+  - Book4
+  - Book5
+  - Book6
+  - Book7
+  - Book8
+  - Book9
+  - Book10
   layers:
   - Default
   - TransparentFX

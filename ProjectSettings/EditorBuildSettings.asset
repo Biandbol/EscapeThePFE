@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/WarRoom.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/War Roooom.unity
     guid: 0bc7ff4cbb13f9a42ac0f4afa2054f9a
   - enabled: 1
