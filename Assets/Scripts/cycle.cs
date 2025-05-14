@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
+using Oculus.Interaction;
 using UnityEngine;
 
 public class CycleGameObjects : MonoBehaviour
@@ -49,6 +51,8 @@ public class CycleGameObjects : MonoBehaviour
 
     void Update()
     {
+          
+       
         // First group: Up/Down arrows
         if (Input.GetKeyDown(KeyCode.UpArrow))
             CycleNext(firstGroup);
@@ -59,16 +63,17 @@ public class CycleGameObjects : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
             CycleNext(secondGroup);
         if (Input.GetKeyDown(KeyCode.LeftArrow))
-            CyclePrevious(secondGroup);
+            CyclePrevious(secondGroup);  
+        WordCheck();
     }
 
-    void InitializeGroup(LetterGroup group)
+    public void InitializeGroup(LetterGroup group)
     {
         for (int i = 0; i < group.objects.Count; i++)
             group.objects[i].SetActive(i == group.currentIndex);
     }
 
-    void CycleNext(LetterGroup group)
+    public void CycleNext(LetterGroup group)
     {
         if (group.objects.Count == 0) return;
 
@@ -77,7 +82,7 @@ public class CycleGameObjects : MonoBehaviour
         group.objects[group.currentIndex].SetActive(true);
     }
 
-    void CyclePrevious(LetterGroup group)
+    public void CyclePrevious(LetterGroup group)
     {
         if (group.objects.Count == 0) return;
 
@@ -85,4 +90,38 @@ public class CycleGameObjects : MonoBehaviour
         group.currentIndex = (group.currentIndex - 1 + group.objects.Count) % group.objects.Count;
         group.objects[group.currentIndex].SetActive(true);
     }
+
+    public void Firsstgroup(){
+        
+
+         CycleNext(firstGroup);
+          
+    }
+    public void secondddgroup(){
+        CycleNext(secondGroup);
+    }
+    public void thirdgroup(){
+        CycleNext(thirdGroup);
+    }
+    public void forthgroup(){
+        CycleNext(forthGroup);
+    }
+
+
+    public void WordCheck(){
+        Debug.Log(firstGroup.currentIndex+("first wprd"));
+        Debug.Log(secondGroup.currentIndex+("second wprd"));
+        Debug.Log(thirdGroup.currentIndex+("third wprd"));
+        Debug.Log(forthGroup.currentIndex+("forth wprd"));
+
+        if (firstGroup.currentIndex==1 && secondGroup.currentIndex==10 && thirdGroup.currentIndex==5 && forthGroup.currentIndex==3)
+        {
+            
+            Debug.Log("correct");
+        }
+        
+    }
+
+
+
 }
