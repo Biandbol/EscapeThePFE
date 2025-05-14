@@ -5,8 +5,10 @@ public class sceneManagertoSacrifice : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered by " + other.gameObject);
-        SceneManager.LoadScene("pantheon roooom");
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("pantheon roooom");
+        }
+
     }
-    
 }

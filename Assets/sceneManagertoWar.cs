@@ -11,8 +11,9 @@ public class sceneManagertoWar : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered by " + other.gameObject);
-        SceneManager.LoadScene("War Roooom");
+        if (other.CompareTag("Player")){
+            Debug.Log("Trigger entered by " + other.gameObject);
+            SceneManager.LoadScene("War Roooom");
+        }
     }
 }
-
