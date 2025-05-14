@@ -1,51 +1,88 @@
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 
 public class CycleGameObjects : MonoBehaviour
 {
-    public List<GameObject> gameObjectsToCycle; // Assign in inspector
-    private int currentIndex = 0;
-    
+    public Transform firstGroupParent;
+    public Transform secondGroupParent;
+     public Transform thirdGroupParent;
+      public Transform forthGroupParent;
+       public Transform fifthGroupParent;
+    [System.Serializable]
+    public class LetterGroup
+    {
+        public List<GameObject> objects;
+        [HideInInspector] public int currentIndex = 0;
+    }
+
+    public LetterGroup firstGroup;
+    public LetterGroup secondGroup;
+    public LetterGroup thirdGroup;
+    public LetterGroup forthGroup;
+    public LetterGroup fifthGroup;
+
     void Start()
     {
-        // Disable all objects except the first one at start
-        for (int i = 0; i < gameObjectsToCycle.Count; i++)
-        {
-            gameObjectsToCycle[i].SetActive(i == currentIndex);
-        }
+         firstGroup.objects = GetChildren(firstGroupParent);
+    secondGroup.objects = GetChildren(secondGroupParent);
+    thirdGroup.objects = GetChildren(thirdGroupParent);
+    forthGroup.objects = GetChildren(forthGroupParent);
+    fifthGroup.objects = GetChildren(fifthGroupParent);
+
+    List<GameObject> GetChildren(Transform parent)
+{
+    List<GameObject> children = new List<GameObject>();
+    if (parent == null) return children;
+
+    foreach (Transform child in parent)
+        children.Add(child.gameObject);
+
+    return children;
+}
+
+        InitializeGroup(firstGroup);
+        InitializeGroup(secondGroup);
+        InitializeGroup(thirdGroup);
+        InitializeGroup(forthGroup);
+        InitializeGroup(fifthGroup);
     }
+
     void Update()
     {
+        // First group: Up/Down arrows
         if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-             NextObject();
-        }
-       
+            CycleNext(firstGroup);
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            CyclePrevious(firstGroup);
+
+        // Second group: Right/Left arrows
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            CycleNext(secondGroup);
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            CyclePrevious(secondGroup);
     }
 
-    public void NextObject()
+    void InitializeGroup(LetterGroup group)
     {
-        // Disable current object
-        gameObjectsToCycle[currentIndex].SetActive(false);
-        
-        // Move to next index with wrap-around
-        currentIndex = (currentIndex + 1) % gameObjectsToCycle.Count;
-        
-        // Enable new current object
-        gameObjectsToCycle[currentIndex].SetActive(true);
+        for (int i = 0; i < group.objects.Count; i++)
+            group.objects[i].SetActive(i == group.currentIndex);
     }
 
-    public void PreviousObject()
+    void CycleNext(LetterGroup group)
     {
-        // Disable current object
-        gameObjectsToCycle[currentIndex].SetActive(false);
-        
-        // Move to previous index with wrap-around
-        currentIndex = (currentIndex - 1 + gameObjectsToCycle.Count) % gameObjectsToCycle.Count;
-        
-        // Enable new current object
-        gameObjectsToCycle[currentIndex].SetActive(true);
+        if (group.objects.Count == 0) return;
+
+        group.objects[group.currentIndex].SetActive(false);
+        group.currentIndex = (group.currentIndex + 1) % group.objects.Count;
+        group.objects[group.currentIndex].SetActive(true);
+    }
+
+    void CyclePrevious(LetterGroup group)
+    {
+        if (group.objects.Count == 0) return;
+
+        group.objects[group.currentIndex].SetActive(false);
+        group.currentIndex = (group.currentIndex - 1 + group.objects.Count) % group.objects.Count;
+        group.objects[group.currentIndex].SetActive(true);
     }
 }
