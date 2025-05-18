@@ -39,6 +39,7 @@ TagManager:
   - Book8
   - Book9
   - Book10
+  - pestle
   layers:
   - Default
   - TransparentFX

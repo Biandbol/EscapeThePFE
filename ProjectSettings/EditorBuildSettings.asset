@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/pantheon roooom.unity
+    guid: f267eade3856ea9498c49ff1a20c4133
+  - enabled: 0
+    path: Assets/Scenes/War Roooom.unity
+    guid: 0bc7ff4cbb13f9a42ac0f4afa2054f9a
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9c7386844bb96f34283897d967e294a8, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: ab9e21d3445e31940a759e514be0f15f, type: 2}
