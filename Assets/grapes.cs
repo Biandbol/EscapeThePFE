@@ -4,6 +4,7 @@ using System.Collections;
 public class grapes : MonoBehaviour
 {
     public ParticleSystem juiceParticles;
+    public MeshRenderer wineRenderer;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -13,6 +14,8 @@ public class grapes : MonoBehaviour
             juiceParticles.Emit(10);
 
             Destroy(gameObject, 0.5f);
+            if (wineRenderer != null)
+                wineRenderer.enabled = true;
         }
     }
 
