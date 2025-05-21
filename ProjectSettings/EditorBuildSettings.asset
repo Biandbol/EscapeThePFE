@@ -5,6 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< Updated upstream
   - enabled: 0
     path: Assets/Scenes/pantheon roooom.unity
     guid: f267eade3856ea9498c49ff1a20c4133
@@ -18,6 +19,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Lights.unity
     guid: 5871cfa8ca84f104cb8d27776f16b153
   - enabled: 0
+=======
+  - enabled: 1
+>>>>>>> Stashed changes
     path: Assets/Scenes/Room3.unity
     guid: cc41cc2cd5ce71246b6c5c6d705211f0
   m_configObjects:

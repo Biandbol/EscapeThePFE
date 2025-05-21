@@ -9164,7 +9164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2730319267654710030, guid: 6e00f3299d5c683449de8bcb97a64f41, type: 3}
       propertyPath: m_IsActive
+<<<<<<< Updated upstream
       value: 1
+=======
+      value: 0
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 2809643367104592793, guid: 6e00f3299d5c683449de8bcb97a64f41, type: 3}
       propertyPath: m_Layer
