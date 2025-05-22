@@ -28,9 +28,15 @@ TextureImporter:
   ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   generateCubemap: 2
   cubemapConvolution: 0
   seamlessCubemap: 1
+=======
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+>>>>>>> Stashed changes
 =======
   generateCubemap: 6
   cubemapConvolution: 0
@@ -62,7 +68,11 @@ TextureImporter:
   spriteTessellationDetail: -1
   textureType: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   textureShape: 2
+=======
+  textureShape: 1
+>>>>>>> Stashed changes
 =======
   textureShape: 1
 >>>>>>> Stashed changes
@@ -80,7 +90,11 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     maxTextureSize: 4096
+=======
+    maxTextureSize: 2048
+>>>>>>> Stashed changes
 =======
     maxTextureSize: 2048
 >>>>>>> Stashed changes
@@ -108,7 +122,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
@@ -122,6 +139,9 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   spriteSheet:
     serializedVersion: 2
@@ -138,6 +158,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    spriteCustomMetadata:
+      entries: []
+>>>>>>> Stashed changes
 =======
     spriteCustomMetadata:
       entries: []
@@ -149,6 +174,7 @@ TextureImporter:
   assetBundleName: 
   assetBundleVariant: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 AssetOrigin:
   serializedVersion: 1
   productId: 316991
@@ -156,5 +182,7 @@ AssetOrigin:
   packageVersion: 1.0
   assetPath: Assets/WG Free Skies/Skyboxes/Textures/Starmap_8k.exr
   uploadId: 748398
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
