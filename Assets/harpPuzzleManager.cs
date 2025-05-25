@@ -3,75 +3,53 @@ using UnityEngine;
 
 public class harpPuzzleManager : MonoBehaviour
 {
-    public string[] targetTune = { "do", "ré", "mi", "fa", "sol" }; // Target melody
-    private List<string> playerInput = new List<string>();
+    [Header("Target Sequence")]
+    public string[] targetTune = { "do", "ré", "mi", "fa", "sol" }; // Note names must match tags
 
-    [Header("Reward/Penalty Objects")]
-    public GameObject rewardPrefab; // Assign in Inspector (e.g., treasure chest)
-    public GameObject penaltyPrefab; // Assign in Inspector (e.g., lock icon)
-    public Transform spawnPoint; // Where objects will appear
+    [Header("Reward/Penalty")]
+    public GameObject rewardPrefab;
+    public GameObject penaltyPrefab;
+    public Transform spawnPoint;
 
-    [Header("Audio")]
-    public AudioClip successSound;
-    public AudioClip failSound;
-    private AudioSource audioSource;
+    private List<string> _playerInput = new List<string>();
 
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    // Called when a harp string is plucked
+    // Renamed from RegisterNote to PlayNote for consistency
     public void PlayNote(string note)
     {
-        playerInput.Add(note);
+        _playerInput.Add(note);
+        Debug.Log($"[Puzzle] Received note: {note}");
+
         CheckProgress();
     }
 
     private void CheckProgress()
     {
-        if (playerInput.Count >= targetTune.Length)
+        if (_playerInput.Count >= targetTune.Length)
         {
             bool isCorrect = true;
             for (int i = 0; i < targetTune.Length; i++)
             {
-                if (playerInput[playerInput.Count - targetTune.Length + i] != targetTune[i])
+                if (_playerInput[_playerInput.Count - targetTune.Length + i] != targetTune[i])
                 {
                     isCorrect = false;
                     break;
                 }
             }
 
-            if (isCorrect)
-            {
-                SpawnReward();
-                playerInput.Clear();
-            }
-            else if (playerInput.Count > targetTune.Length * 2)
-            {
-                SpawnPenalty();
-                playerInput.Clear();
-            }
+            if (isCorrect) SpawnReward();
+            else if (_playerInput.Count > targetTune.Length * 2) SpawnPenalty();
         }
     }
 
     private void SpawnReward()
     {
-        if (rewardPrefab != null && spawnPoint != null)
-        {
-            Instantiate(rewardPrefab, spawnPoint.position, Quaternion.identity);
-            audioSource.PlayOneShot(successSound);
-            Debug.Log("Correct! Reward spawned.");
-        }
+        Instantiate(rewardPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log("[Puzzle] Correct! Reward spawned.");
     }
 
     private void SpawnPenalty()
     {
-        if (penaltyPrefab != null && spawnPoint != null)
-        {
-            Instantiate(penaltyPrefab, spawnPoint.position, Quaternion.identity);
-            audioSource.PlayOneShot(failSound);
-            Debug.Log("Wrong! Penalty spawned.");
-        }
+        Instantiate(penaltyPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log("[Puzzle] Wrong sequence! Penalty spawned.");
     }
 }

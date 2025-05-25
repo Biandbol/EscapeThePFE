@@ -41,6 +41,18 @@ TagManager:
   - Book10
   - pestle
   - grape
+  - do
+  - "r\xE9"
+  - mi
+  - fa
+  - sol
+  - la
+  - si
+  - doo
+  - "r\xE9\xE9"
+  - mii
+  - faa
+  - soll
   layers:
   - Default
   - TransparentFX
