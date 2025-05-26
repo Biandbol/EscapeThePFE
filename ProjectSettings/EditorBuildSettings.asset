@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/pantheon roooom.unity
     guid: f267eade3856ea9498c49ff1a20c4133
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/War Roooom.unity
     guid: 0bc7ff4cbb13f9a42ac0f4afa2054f9a
   - enabled: 0

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Oculus.Interaction;
+using Unity.Services.Lobbies.Models;
 using UnityEngine;
 
 public class CycleGameObjects : MonoBehaviour
@@ -10,6 +11,7 @@ public class CycleGameObjects : MonoBehaviour
      public Transform thirdGroupParent;
       public Transform forthGroupParent;
        public Transform fifthGroupParent;
+    public GameObject nidel;
     [System.Serializable]
     public class LetterGroup
     {
@@ -114,10 +116,11 @@ public class CycleGameObjects : MonoBehaviour
         Debug.Log(thirdGroup.currentIndex+("third wprd"));
         Debug.Log(forthGroup.currentIndex+("forth wprd"));
 
-        if (firstGroup.currentIndex==1 && secondGroup.currentIndex==10 && thirdGroup.currentIndex==5 && forthGroup.currentIndex==3)
+        if (firstGroup.currentIndex == 1 && secondGroup.currentIndex == 10 && thirdGroup.currentIndex == 5 && forthGroup.currentIndex == 3)
         {
-            
+
             Debug.Log("correct");
+            Instantiate(nidel );
         }
         
     }

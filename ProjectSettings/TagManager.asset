@@ -53,6 +53,8 @@ TagManager:
   - mii
   - faa
   - soll
+  - time
+  - lights
   layers:
   - Default
   - TransparentFX
