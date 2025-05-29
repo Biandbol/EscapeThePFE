@@ -30169,7 +30169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &868280757
 AudioListener:
   m_ObjectHideFlags: 0
@@ -58534,7 +58534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1633538763
 Transform:
   m_ObjectHideFlags: 0
@@ -75999,6 +75999,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2657386889781498081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 20255826050263373, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 273635762234537712, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 480423224193504187, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 1077555391384798607, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 2074550878331164734, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 3069013701275201491, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 3110435996971589805, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 3327908453628326896, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 3395538509809560819, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 4986574485554914147, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 6347017811816021575, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    - target: {fileID: 7201092564894346297, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_Name
+      value: harp (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201092564894346297, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.446
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.539
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.389
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.9294743
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.36888698
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 43.294006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540357441558132355, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7992714714094110451, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
+      propertyPath: harpPuzzle
+      value: 
+      objectReference: {fileID: 1124743276}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0cafeed2ed3ea7f49aed710424ee28a0, type: 3}
 --- !u!4 &2691500874692569063
 Transform:
   m_ObjectHideFlags: 0
@@ -78259,6 +78368,7 @@ SceneRoots:
   - {fileID: 810961298}
   - {fileID: 625658777}
   - {fileID: 1809619607}
+  - {fileID: 2657386889781498081}
   - {fileID: 1011003864}
   - {fileID: 1124743277}
   - {fileID: 55803668}
