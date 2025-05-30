@@ -1484,11 +1484,11 @@ MonoBehaviour:
   - {fileID: -6417960409460024369}
   - {fileID: -8566359108756736573}
   - {fileID: -1813790694499994832}
-  m_renderMode: 1
+  m_renderMode: 0
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
     m_List: 00000000
-  m_depthSubmissionMode: 0
+  m_depthSubmissionMode: 2
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
   m_foveatedRenderingApi: 0
