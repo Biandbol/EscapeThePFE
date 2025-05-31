@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class harpString : MonoBehaviour
+/*public class harpString : MonoBehaviour
 {
     public string note; // Set in Inspector (e.g., "Do", "Re", "Mi")
     public harpPuzzleManager harpPuzzle;
@@ -13,4 +13,4 @@ public class harpString : MonoBehaviour
     {
         harpPuzzle.PlayNote(note);
     }
-}
+}*/
