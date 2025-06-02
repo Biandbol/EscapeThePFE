@@ -17,7 +17,7 @@ public class grapes : MonoBehaviour
             Destroy(gameObject, 0.5f);
             if (wineRenderer != null)
                 wineRenderer.enabled = true;
-                //wineCollider.enabled = true;
+            //wineCollider.enabled = true;
         }
     }
 

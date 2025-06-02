@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class mosaicPuzzleManager : MonoBehaviour
@@ -8,7 +6,8 @@ public class mosaicPuzzleManager : MonoBehaviour
     public float hoverHeight = 0.5f;
     public Color correctColor = new Color(0, 1, 0, 0.5f); // Green with 50% opacity
     public Color wrongColor = new Color(1, 0, 0, 0.5f);   // Red with 50% opacity
-    private Color defaultColor = Color.white;
+    public GameObject rewardPrefab;
+    public Transform spawnPoint;
 
     private GameObject lastHoveredPiece;
 
@@ -31,12 +30,6 @@ public class mosaicPuzzleManager : MonoBehaviour
         {
             GameObject piece = GameObject.FindWithTag("cube" + i);
             if (piece == null) continue;
-
-            // Reset color if not hovering anymore
-            if (piece != lastHoveredPiece && piece.GetComponent<Renderer>().material.color != defaultColor)
-            {
-                piece.GetComponent<Renderer>().material.color = defaultColor;
-            }
 
             // Check if piece is hovering over this place
             if (IsHovering(piece.transform))
@@ -89,6 +82,11 @@ public class mosaicPuzzleManager : MonoBehaviour
             // Destroy the cube
             Destroy(other.gameObject);
         }
+    }
+    private void SpawnReward()
+    {
+        Instantiate(rewardPrefab, spawnPoint.position, Quaternion.identity);
+        Debug.Log("[Puzzle] Correct! Reward spawned.");
     }
 }
 
