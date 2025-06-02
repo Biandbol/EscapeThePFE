@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BookShelfPuzzleManager : MonoBehaviour
 {
-    public Transform[] bookSlots;         // Assign these in the Inspector
+    /*public Transform[] bookSlots;         // Assign these in the Inspector
     public GameObject hole;               // Assign the door or moving object here
 
     private void Start()
@@ -15,7 +15,7 @@ public class BookShelfPuzzleManager : MonoBehaviour
     {
         bool isCorrect = true;
 
-        string[] correctTags = { "Book10", "Book9", "Book8", "Book6", "Book5", "Book4", "Book3", "Book2", "Book1" };
+        string[] correctTags = { "cannae", "trasimane", "trebia", "zama" };
 
         for (int i = 0; i < bookSlots.Length; i++)
         {
@@ -57,6 +57,56 @@ public class BookShelfPuzzleManager : MonoBehaviour
         {
             Debug.LogWarning("Hole object not assigned in inspector.");
         }
+    }*/
+    [System.Serializable]
+    public struct SlotRequirement
+    {
+        public int slotIndex;
+        public int requiredBookID;
     }
-}
 
+    [Header("Configuration")]
+    public SlotRequirement[] slotRequirements; // Defines correct book for each slot
+
+    [Header("References")]
+    public GameObject secretDoor; // The object to move on success
+
+    private int[] currentSlotStates; // Tracks which books are placed
+
+    private void Start()
+    {
+        currentSlotStates = new int[slotRequirements.Length];
+        for (int i = 0; i < currentSlotStates.Length; i++)
+        {
+            currentSlotStates[i] = -1; // -1 means empty
+        }
+    }
+
+    public void ReportBookPlaced(int slotIndex, int bookID)
+    {
+        currentSlotStates[slotIndex] = bookID;
+        CheckPuzzleSolution();
+    }
+
+    public void ReportBookRemoved(int slotIndex)
+    {
+        currentSlotStates[slotIndex] = -1;
+    }
+
+    private void CheckPuzzleSolution()
+    {
+        for (int i = 0; i < slotRequirements.Length; i++)
+        {
+            if (currentSlotStates[slotRequirements[i].slotIndex] != slotRequirements[i].requiredBookID)
+            {
+                return; // At least one slot is incorrect
+            }
+        }
+        PuzzleSolved();
+    }
+
+    private void PuzzleSolved()
+    {
+        Debug.Log("✅ All books placed correctly!");
+    }
+    }
