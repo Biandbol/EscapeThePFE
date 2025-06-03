@@ -5,6 +5,7 @@ public class SundialRidl : MonoBehaviour
     private float raylength=150f;
     [SerializeField] public GameObject horse;
     [SerializeField] public Transform Sundial;
+    [SerializeField] public Transform Spawnpos;
 
     private bool HasInstantiated=false;
 
@@ -25,7 +26,7 @@ public class SundialRidl : MonoBehaviour
         {
             if (hit.collider.CompareTag("time") && !HasInstantiated)
             {
-                Instantiate(horse,new Vector3(0,1.2f,0),Quaternion.identity);
+                Instantiate(horse,Spawnpos.position,Quaternion.identity);
                 Debug.Log("target got hit");
                 HasInstantiated=true;
             }

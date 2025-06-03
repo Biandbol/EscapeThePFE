@@ -1,15 +1,18 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Oculus.Interaction;
+using Unity.Mathematics;
+using Unity.Services.Authentication;
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 public class CycleGameObjects : MonoBehaviour
 {
     public Transform firstGroupParent;
     public Transform secondGroupParent;
-     public Transform thirdGroupParent;
-      public Transform forthGroupParent;
-       public Transform fifthGroupParent;
+    public Transform thirdGroupParent;
+    public Transform forthGroupParent;
+    public Transform fifthGroupParent;
     [System.Serializable]
     public class LetterGroup
     {
@@ -22,37 +25,53 @@ public class CycleGameObjects : MonoBehaviour
     public LetterGroup thirdGroup;
     public LetterGroup forthGroup;
     public LetterGroup fifthGroup;
+    public GameObject nidel;
+    private bool nidelspawned = false;
+    public Transform nidelpos;
+    public Transform grinder1;
+    public Transform grinder2;
+    public Transform grinder3;
+    public Transform grinder4;
+    public float Grinder1Y, Grinder2Y, Grinder3Y, Grinder4Y, Rotationration = 15f;
 
     void Start()
     {
-         firstGroup.objects = GetChildren(firstGroupParent);
-    secondGroup.objects = GetChildren(secondGroupParent);
-    thirdGroup.objects = GetChildren(thirdGroupParent);
-    forthGroup.objects = GetChildren(forthGroupParent);
-    fifthGroup.objects = GetChildren(fifthGroupParent);
+        firstGroup.objects = GetChildren(firstGroupParent);
+        secondGroup.objects = GetChildren(secondGroupParent);
+        thirdGroup.objects = GetChildren(thirdGroupParent);
+        forthGroup.objects = GetChildren(forthGroupParent);
+        fifthGroup.objects = GetChildren(fifthGroupParent);
 
-    List<GameObject> GetChildren(Transform parent)
-{
-    List<GameObject> children = new List<GameObject>();
-    if (parent == null) return children;
+        List<GameObject> GetChildren(Transform parent)
+        {
+            List<GameObject> children = new List<GameObject>();
+            if (parent == null) return children;
 
-    foreach (Transform child in parent)
-        children.Add(child.gameObject);
+            foreach (Transform child in parent)
+                children.Add(child.gameObject);
 
-    return children;
-}
+            return children;
+        }
 
         InitializeGroup(firstGroup);
         InitializeGroup(secondGroup);
         InitializeGroup(thirdGroup);
         InitializeGroup(forthGroup);
         InitializeGroup(fifthGroup);
+        Grinder1Y = grinder1.eulerAngles.y;
+        Grinder2Y = grinder2.eulerAngles.y;
+        Grinder3Y = grinder3.eulerAngles.y;
+        Grinder4Y = grinder4.eulerAngles.y;
     }
 
     void Update()
     {
-          
-       
+        WordCheck();
+        nextcharecter(grinder1, ref Grinder1Y,firstGroup);
+        nextcharecter(grinder2, ref Grinder2Y,secondGroup);
+        nextcharecter(grinder3, ref Grinder3Y,thirdGroup);
+        nextcharecter(grinder4, ref Grinder4Y,forthGroup);
+
         // First group: Up/Down arrows
         if (Input.GetKeyDown(KeyCode.UpArrow))
             CycleNext(firstGroup);
@@ -63,8 +82,8 @@ public class CycleGameObjects : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
             CycleNext(secondGroup);
         if (Input.GetKeyDown(KeyCode.LeftArrow))
-            CyclePrevious(secondGroup);  
-        WordCheck();
+            CyclePrevious(secondGroup);
+
     }
 
     public void InitializeGroup(LetterGroup group)
@@ -91,37 +110,70 @@ public class CycleGameObjects : MonoBehaviour
         group.objects[group.currentIndex].SetActive(true);
     }
 
-    public void Firsstgroup(){
-        
+    public void Firsstgroup()
+    {
 
-         CycleNext(firstGroup);
-          
+
+        CycleNext(firstGroup);
+
     }
-    public void secondddgroup(){
+    public void secondddgroup()
+    {
         CycleNext(secondGroup);
     }
-    public void thirdgroup(){
+    public void thirdgroup()
+    {
         CycleNext(thirdGroup);
     }
-    public void forthgroup(){
+    public void forthgroup()
+    {
         CycleNext(forthGroup);
     }
 
 
-    public void WordCheck(){
-        Debug.Log(firstGroup.currentIndex+("first wprd"));
-        Debug.Log(secondGroup.currentIndex+("second wprd"));
-        Debug.Log(thirdGroup.currentIndex+("third wprd"));
-        Debug.Log(forthGroup.currentIndex+("forth wprd"));
+    public void WordCheck()
+    {
+        Debug.Log(firstGroup.currentIndex + ("first wprd"));
+        Debug.Log(secondGroup.currentIndex + ("second wprd"));
+        Debug.Log(thirdGroup.currentIndex + ("third wprd"));
+        Debug.Log(forthGroup.currentIndex + ("forth wprd"));
 
-        if (firstGroup.currentIndex==1 && secondGroup.currentIndex==10 && thirdGroup.currentIndex==5 && forthGroup.currentIndex==3)
+        if (firstGroup.currentIndex == 1 && secondGroup.currentIndex == 10 && thirdGroup.currentIndex == 5 && forthGroup.currentIndex == 23 && nidelspawned == false)
         {
-            
+            Instantiate(nidel, nidelpos.position, quaternion.identity);
+            nidelspawned = true;
+
             Debug.Log("correct");
         }
-        
+
+
     }
+    public void nextcharecter(Transform grinder, ref float lastY, LetterGroup group)
+    {
+        float currentY = grinder.eulerAngles.y;
+        float deltaY = Mathf.DeltaAngle(lastY, currentY);
+
+        if (Mathf.Abs(deltaY) >= Rotationration)
+        {
+            if (deltaY > 0)
+            {
+                CycleNext(group);
+            }
+            else
+            {
+                CyclePrevious(group);
+            }
+
+                lastY = currentY;
+            }
 
 
 
-}
+
+
+
+        }
+    } 
+
+
+
