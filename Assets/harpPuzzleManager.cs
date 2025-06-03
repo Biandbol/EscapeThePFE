@@ -6,15 +6,17 @@ public class harpPuzzleManager : MonoBehaviour
     [Header("Target Sequence")]
     public string[] targetTune = { "do", "ré", "mi", "fa", "sol" };
 
-    [Header("Reward/Penalty")]
+    [Header("Reward")]
     public GameObject rewardPrefab;
-    public GameObject penaltyPrefab;
     public Transform spawnPoint;
 
     private List<string> _playerInput = new List<string>();
+    private bool _rewardSpawned; // Tracks if reward was already given
 
     public void RegisterNote(string note)
     {
+        if (_rewardSpawned) return; // Ignore input after solving
+
         _playerInput.Add(note);
         Debug.Log($"[Puzzle] Received note: {note}");
 
@@ -37,28 +39,32 @@ public class harpPuzzleManager : MonoBehaviour
                 }
             }
 
-            if (isCorrect)
+            if (isCorrect && !_rewardSpawned)
             {
                 SpawnReward();
-                _playerInput.Clear(); // reset after success
+                _rewardSpawned = true; // Mark as completed
+                _playerInput.Clear();
             }
             else if (_playerInput.Count > targetTune.Length * 2)
             {
-                SpawnPenalty();
-                _playerInput.Clear(); // reset after fail
+                _playerInput.Clear(); // Reset attempts without penalty
             }
         }
     }
 
     private void SpawnReward()
     {
-        Instantiate(rewardPrefab, spawnPoint.position, Quaternion.identity);
-        Debug.Log("[Puzzle] Correct! Reward spawned.");
+        if (rewardPrefab && spawnPoint)
+        {
+            Instantiate(rewardPrefab, spawnPoint.position, Quaternion.identity);
+            Debug.Log("[Puzzle] Correct! Reward spawned.");
+        }
     }
 
-    private void SpawnPenalty()
+    // Call this if you want to reset the puzzle
+    public void ResetPuzzle()
     {
-        Instantiate(penaltyPrefab, spawnPoint.position, Quaternion.identity);
-        Debug.Log("[Puzzle] Wrong sequence! Penalty spawned.");
+        _rewardSpawned = false;
+        _playerInput.Clear();
     }
 }
