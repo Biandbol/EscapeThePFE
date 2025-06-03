@@ -1,29 +1,30 @@
 using UnityEngine;
 
-public class LightManger : MonoBehaviour
+public class LightManager : MonoBehaviour
 {
-    public GameObject fire;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject lightSource;
+    public ParticleSystem particles;
+    private bool isActivated = false;
+    public AudioSource fire;
+
+    private void OnTriggerEnter(Collider other)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Light"))
+        if (!isActivated && other.CompareTag("Lighter"))
         {
-
-            fire.SetActive(true);
-            
+            Activate();
         }
+    }
+
+    private void Activate()
+    {
+        isActivated = true;
+
+        if (lightSource != null)
+
+            lightSource.SetActive(true);
+        fire.Play();
+
+        if (particles != null && !particles.isPlaying)
+            particles.Play();
     }
 }

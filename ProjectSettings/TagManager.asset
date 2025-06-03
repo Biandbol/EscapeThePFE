@@ -41,6 +41,9 @@ TagManager:
   - P10
   - P11
   - Light
+  - Light1
+  - Lighter
+  - N1
   layers:
   - Default
   - TransparentFX
