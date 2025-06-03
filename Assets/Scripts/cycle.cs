@@ -32,7 +32,7 @@ public class CycleGameObjects : MonoBehaviour
     public Transform grinder2;
     public Transform grinder3;
     public Transform grinder4;
-    public float Grinder1Y, Grinder2Y, Grinder3Y, Grinder4Y, Rotationration = 15f;
+    public float Grinder1Y, Grinder2Y, Grinder3Y, Grinder4Y, Rotationration = 20f;
 
     void Start()
     {
