@@ -3,32 +3,22 @@ using static OVRPlugin;
 
 public class bookSlot : MonoBehaviour
 {
-    [Header("Configuration")]
-    public int slotIndex; // 0, 1, 2, etc. (matches order in BookPuzzleManager)
-    public int expectedBookID; // Unique ID for the correct book
+    public string requiredTag; // Set to "Book1", "Book2" etc. in Inspector
+    public BookShelfPuzzleManager manager;
 
-    [Header("References")]
-    public BookShelfPuzzleManager puzzleManager;
-
-    public bookSlotID currentBook; // Currently placed book (if any)
-
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        bookSlotID book = other.GetComponent<bookSlotID>();
-        if (book != null)
+        if (other.CompareTag(requiredTag))
         {
-            currentBook = book;
-            puzzleManager?.ReportBookPlaced(slotIndex, book.bookID);
+            // Snap book into place
+            other.transform.position = transform.position;
+            manager.CheckIfPuzzleSolved();
+        }
+        else if (other.GetComponent<bookSlotID>() != null)
+        {
+            // Return wrong book
+            other.GetComponent<bookSlotID>().ReturnToStart();
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        bookSlotID book = other.GetComponent<bookSlotID>();
-        if (book != null && book == currentBook)
-        {
-            currentBook = null;
-            puzzleManager?.ReportBookRemoved(slotIndex);
-        }
-    }
 }

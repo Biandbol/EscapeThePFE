@@ -2,5 +2,15 @@ using UnityEngine;
 
 public class bookSlotID : MonoBehaviour
 {
-    public int bookID; // Unique identifier (set in Inspector)
+    private Vector3 startPosition;
+
+    void Start()
+    {
+        startPosition = transform.position;
+    }
+
+    public void ReturnToStart()
+    {
+        transform.position = startPosition;
+    }
 }

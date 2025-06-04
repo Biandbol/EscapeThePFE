@@ -1,112 +1,112 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class BookShelfPuzzleManager : MonoBehaviour
 {
-    /*public Transform[] bookSlots;         // Assign these in the Inspector
-    public GameObject hole;               // Assign the door or moving object here
+    public bookSlot[] slots; // Make sure this is "BookSlot" (capital B)
+    public Transform secretDoor;
+    public float moveDistance = 2f;
+    public AudioSource audioSource;
+    public AudioClip stoneSlideSound;
 
-    private void Start()
+    private Vector3 doorStartPosition;
+    private bool isOpen = false;
+
+    void Start()
     {
-        // Optional: delay check to give time for scene setup or testing
-        Invoke("CheckBooks", 2f);
+        doorStartPosition = secretDoor.position;
     }
 
-    public void CheckBooks()
+    public void CheckIfPuzzleSolved()
     {
-        bool isCorrect = true;
-
-        string[] correctTags = { "cannae", "trasimane", "trebia", "zama" };
-
-        for (int i = 0; i < bookSlots.Length; i++)
+        foreach (bookSlot slot in slots)
         {
-            if (bookSlots[i].childCount == 0)
+            Collider[] colliders = Physics.OverlapBox(
+                slot.transform.position,
+                Vector3.one * 0.1f
+            );
+
+            bool hasCorrectBook = false;
+            foreach (Collider col in colliders)
             {
-                Debug.Log($"Slot {i} is empty.");
-                isCorrect = false;
-                break;
+                if (col.CompareTag(slot.requiredTag))
+                {
+                    hasCorrectBook = true;
+                    break;
+                }
             }
 
-            GameObject snappedBook = bookSlots[i].GetChild(0).gameObject;
-
-            if (snappedBook.tag != correctTags[i])
-            {
-                Debug.Log($"Slot {i}: Expected {correctTags[i]}, found {snappedBook.tag}");
-                isCorrect = false;
-                break;
-            }
+            if (!hasCorrectBook) return;
         }
 
-        if (isCorrect)
-        {
-            PuzzleSolved();
-        }
-        else
-        {
-            Debug.Log("Books are in the wrong order.");
-        }
+        OpenSecretDoor();
     }
 
-    private void PuzzleSolved()
+    void OpenSecretDoor()
     {
-        Debug.Log("Puzzle Solved! Secret Door Opens!");
-        if (hole != null)
+        if (!isOpen)
         {
-            hole.transform.position += new Vector3(2f, 0, 0);
+            // Move on Z-axis (forward/backward)
+            secretDoor.position = doorStartPosition + new Vector3(0, 0, moveDistance);
+
+            // Play sound
+            if (audioSource != null && stoneSlideSound != null)
+            {
+                audioSource.PlayOneShot(stoneSlideSound);
+            }
+
+            isOpen = true;
+            Debug.Log("Door moved on Z-axis!");
         }
-        else
+    }
+    /*public bookSlot[] slots; // Assign all 4 slots in Inspector
+    public Transform secretDoor;
+    public float moveDistance = 2f;
+    public AudioSource audioSource;
+    public AudioClip stoneSlideSound;
+
+
+    private Vector3 doorStartPosition;
+    private bool isOpen = false;
+
+    void Start()
+    {
+        doorStartPosition = secretDoor.position;
+    }
+
+    public void CheckIfPuzzleSolved()
+    {
+        // Check all slots
+        foreach (bookSlot slot in slots)
         {
-            Debug.LogWarning("Hole object not assigned in inspector.");
+            Collider[] colliders = Physics.OverlapBox(slot.transform.position, Vector3.one * 0.1f);
+            bool hasCorrectBook = false;
+
+            foreach (Collider col in colliders)
+            {
+                if (col.CompareTag(slot.requiredTag))
+                {
+                    hasCorrectBook = true;
+                    break;
+                }
+            }
+
+            if (!hasCorrectBook) return;
+        }
+
+        // If we get here, all slots are correct!
+        OpenSecretDoor();
+    }
+
+    void OpenSecretDoor()
+    {
+        if (!isOpen)
+        {
+            secretDoor.position = doorStartPosition + new Vector3(0, 0, moveDistance);
+            isOpen = true;
+            audioSource.clip = stoneSlideSound;
+            audioSource.Play();
+
         }
     }*/
-    [System.Serializable]
-    public struct SlotRequirement
-    {
-        public int slotIndex;
-        public int requiredBookID;
-    }
-
-    [Header("Configuration")]
-    public SlotRequirement[] slotRequirements; // Defines correct book for each slot
-
-    [Header("References")]
-    public GameObject secretDoor; // The object to move on success
-
-    private int[] currentSlotStates; // Tracks which books are placed
-
-    private void Start()
-    {
-        currentSlotStates = new int[slotRequirements.Length];
-        for (int i = 0; i < currentSlotStates.Length; i++)
-        {
-            currentSlotStates[i] = -1; // -1 means empty
-        }
-    }
-
-    public void ReportBookPlaced(int slotIndex, int bookID)
-    {
-        currentSlotStates[slotIndex] = bookID;
-        CheckPuzzleSolution();
-    }
-
-    public void ReportBookRemoved(int slotIndex)
-    {
-        currentSlotStates[slotIndex] = -1;
-    }
-
-    private void CheckPuzzleSolution()
-    {
-        for (int i = 0; i < slotRequirements.Length; i++)
-        {
-            if (currentSlotStates[slotRequirements[i].slotIndex] != slotRequirements[i].requiredBookID)
-            {
-                return; // At least one slot is incorrect
-            }
-        }
-        PuzzleSolved();
-    }
-
-    private void PuzzleSolved()
-    {
-        Debug.Log("✅ All books placed correctly!");
-    }
-    }
+}
