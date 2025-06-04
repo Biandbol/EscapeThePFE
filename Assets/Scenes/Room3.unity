@@ -34543,8 +34543,8 @@ MonoBehaviour:
     YAxis:
       ConstrainAxis: 1
       AxisRange:
-        Min: 0
-        Max: 0
+        Min: 180
+        Max: 180
     ZAxis:
       ConstrainAxis: 1
       AxisRange:
@@ -59777,8 +59777,8 @@ MonoBehaviour:
     YAxis:
       ConstrainAxis: 1
       AxisRange:
-        Min: 0
-        Max: 0
+        Min: 180
+        Max: 180
     ZAxis:
       ConstrainAxis: 1
       AxisRange:

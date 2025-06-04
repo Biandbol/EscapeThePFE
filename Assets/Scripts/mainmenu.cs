@@ -18,9 +18,24 @@ public class mainmenu : MonoBehaviour
     {
         Application.Quit();
     }
-        public void Tutuo()
+    public void Tutuo()
     {
 
         SceneManager.LoadSceneAsync(1);
     }
+    public void room1()
+    {
+        SceneManager.LoadSceneAsync("War Roooom");
+    }
+    public void room2()
+    {
+        SceneManager.LoadSceneAsync("pantheon roooom");
+    }
+      public void room3()
+    {
+        SceneManager.LoadSceneAsync("Room3");
+    }
+
+
+
 }
