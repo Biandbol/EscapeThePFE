@@ -33,7 +33,7 @@ public class nidel : MonoBehaviour
         if (other.gameObject.CompareTag("N1"))
         {
             mesh.enabled = true;
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 

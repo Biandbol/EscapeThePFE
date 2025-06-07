@@ -138,7 +138,7 @@ public class CycleGameObjects : MonoBehaviour
         Debug.Log(thirdGroup.currentIndex + ("third wprd"));
         Debug.Log(forthGroup.currentIndex + ("forth wprd"));
 
-        if (firstGroup.currentIndex == 1 && secondGroup.currentIndex == 10 && thirdGroup.currentIndex == 5 && forthGroup.currentIndex == 23 && nidelspawned == false)
+        if (firstGroup.currentIndex == 1 && secondGroup.currentIndex == 10 && thirdGroup.currentIndex == 5 && forthGroup.currentIndex == 3 && nidelspawned == false)
         {
             Instantiate(nidel, nidelpos.position, quaternion.identity);
             nidelspawned = true;
