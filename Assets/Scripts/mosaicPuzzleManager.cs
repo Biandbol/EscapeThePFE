@@ -81,6 +81,7 @@ public class mosaicPuzzleManager : MonoBehaviour
 
             // Destroy the cube
             Destroy(other.gameObject);
+            SpawnReward();
         }
     }
     private void SpawnReward()
