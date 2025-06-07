@@ -34484,7 +34484,7 @@ MonoBehaviour:
   _maxGrabPoints: -1
   _rigidbody: {fileID: 1054702902}
   _kinematicWhileSelected: 1
-  _throwWhenUnselected: 1
+  _throwWhenUnselected: 0
 --- !u!114 &1247014715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34536,14 +34536,14 @@ MonoBehaviour:
         Max: -1.147
   _rotationConstraints:
     XAxis:
-      ConstrainAxis: 0
+      ConstrainAxis: 1
       AxisRange:
         Min: 0
-        Max: 0
+        Max: 100
     YAxis:
       ConstrainAxis: 1
       AxisRange:
-        Min: 180
+        Min: 0
         Max: 180
     ZAxis:
       ConstrainAxis: 1
